@@ -117,12 +117,12 @@ module.exports = function (grunt) {
         compass: {
             options: {
                 sassDir: '<%= yeoman.app %>/styles',
-                cssDir: '.tmp/styles',
-                generatedImagesDir: '.tmp/images/generated',
+                cssDir: 'public/styles',
+                generatedImagesDir: 'public/images/generated',
                 imagesDir: '<%= yeoman.app %>/images',
                 javascriptsDir: '<%= yeoman.app %>/scripts',
                 fontsDir: '<%= yeoman.app %>/styles/fonts',
-                importPath: 'app/bower_components',
+                importPath: 'public/js/libs',
                 httpImagesPath: '/images',
                 httpGeneratedImagesPath: '/images/generated',
                 httpFontsPath: '/styles/fonts',
@@ -195,7 +195,7 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     '<%= yeoman.dist %>/styles/main.css': [
-                        '.tmp/styles/{,*/}*.css',
+                        'public/styles/{,*/}*.css',
                         '<%= yeoman.app %>/styles/{,*/}*.css'
                     ]
                 }
@@ -308,6 +308,7 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'clean:dist',
         'useminPrepare',
+
         'concurrent:dist',
         'neuter:app',
         
